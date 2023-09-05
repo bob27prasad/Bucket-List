@@ -1,0 +1,294 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(52, 52, 52);
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.input-section {
+    text-align: center;
+    height: fit-content;
+    padding: 15px;
+}
+
+h1 {
+    padding: 20px;
+    font-size: 40px;
+    color: antiquewhite;
+    height: fit-content;
+    max-height: 100px;
+}
+
+.inputbar {
+    padding: 5px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 2px auto;
+}
+
+.input-field {
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #fff7ed;
+    width: 50%;
+    box-shadow: 10px 10px 15px;
+    
+}
+
+.add svg {
+    fill: #fff; /*fill is used to set the color of svg shape */
+    margin-right: 5px;
+}
+
+.add {
+    padding: 15px;
+    margin-left: 20px;
+    width: 80px;
+    border-radius: 20px;
+    transition: scale 0.3s ease;
+    background-color: rgb(0, 110, 255);
+    border: none;
+    height: auto;
+    max-height: 60px;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: #000 5px 5px 10px;
+    cursor: pointer;
+}
+
+.add:hover, .ok-btn:hover,.deleteBtn-alert #ok-btn:hover, .deleteBtn-alert #cancle-btn:hover {
+    scale: 1.1;
+    border: 1px solid #fff;
+}
+
+.add:active,  .ok-btn:active, .deleteBtn-alert #ok-btn:active, .deleteBtn-alert #cancle-btn:active {
+    scale: 0.9;
+}
+/*---------------------------*/
+
+.list-section {
+    width: 70%;
+    border: 2px solid #fff;
+    text-align: center;
+    margin: 15px auto;
+    border-radius: 20px;
+    /* min-height: 250px; */
+    box-shadow:  20px 20px 30px -10px;
+    background-color: #4646465e;
+    max-width: 800px;
+}
+
+.list-wishes {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0px auto;
+    /* border: 1px solid #fff; */
+    
+}
+
+.checkbox {
+    appearance: none;
+    width: 30px;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: 2px solid black;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    background-color: #d1d1d1;
+    margin: 2px 8px;
+}
+  
+.checkbox::before {
+    font-family: "Quicksand", sans-serif;
+    position: absolute;
+    bottom: -4px;
+    left: 1px;
+    content: "✔";
+    font-size: 40px;
+    color: rgb(255, 153, 0);
+    transform: scale(0);
+    transition: all 0.2s ease-in-out;
+}
+  
+.checkbox:checked::before {
+    animation: zoom 0.5s ease-in-out;
+    transform: scale(1);
+}
+  
+@keyframes zoom {
+    0% {
+      transform: scale(0);
+    }
+  
+    20% {
+      transform: scale(1.5);
+    }
+  
+    40% {
+      transform: scale(0.5);
+    }
+  
+    50% {
+      transform: scale(1);
+    }
+  
+    70% {
+      transform: scale(1.2);
+    }
+  
+    90% {
+      transform: scale(0.8);
+    }
+  
+    100% {
+      transform: scale(1);
+    }
+}
+
+.list-wishes .wishes {
+    height: auto;
+    min-height: 30px;
+    width: 70%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 18px 5px;
+    white-space: normal;
+}
+
+@keyframes addAnimate {
+    0% {
+        transform: scale(0);
+    }
+
+    30% {
+        transform: scale(1.1);
+    }
+
+}
+
+@keyframes delAnimate {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0);
+    }
+}
+
+.wishes h4 {
+    width: 80%;
+    /* border: 1px solid #000;  */
+    word-wrap: break-word;
+    padding: 10px 9px;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+
+.wishes .edit-icon, .done-icon {
+    background-color: aqua;
+    padding: 8px 1px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+    transition: scale 0.4s ease;
+    width: 15%;
+    /* max-width: 80px; */
+}
+
+.done-icon {
+    background-color: aquamarine;
+}
+
+.editedText {
+    width: 80%;
+    border: none;
+    border-bottom: 2px solid #000;
+    height: 20px;
+}
+
+.delete-btn {
+    background-color: red;
+    padding: 8px 15px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px 10px;
+    transition: scale 0.4s ease;
+    max-width: 70px;
+}
+
+.wishes .edit-icon:hover, .delete-btn:hover, .done-icon:hover{
+    scale: 1.1;
+    /* border: 1px solid #fff; */
+}
+
+.wishes .edit-icon:active, .delete-btn:active, .done-icon:active{
+    scale: 0.8;
+}
+
+.wishes.completed {
+    opacity: 0.13;
+    pointer-events: none;
+    
+}
+
+.alert, .deleteBtn-alert {
+    position: absolute;
+    height: auto;
+    width: 33%;
+    border: 2px solid #7b7b7b;
+    /* backdrop-filter: blur(180px); */
+    background-color: #575757;
+    border-radius: 18px;
+    text-align: center;
+    top: 40%;
+    left: 35%;
+    z-index: 7;
+    box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.523);
+    display: none;
+    animation: addAnimate 1s ease-in-out;
+}
+
+.alert h3, .deleteBtn-alert h3 {
+    padding: 5px;
+    margin: 15px auto;
+    color: #ffffff;
+}
+
+.alert .ok-btn , .deleteBtn-alert #ok-btn, .deleteBtn-alert #cancle-btn{
+    padding: 10px;
+    margin: 20px auto;
+    height: 40px;
+    width: 80px;
+    border-radius: 20px;
+    transition: scale 0.3s ease;
+    background-color: rgb(0, 110, 255);
+    border: none;
+    max-height: 60px;
+    color: #fff;
+    font-weight: 500;
+    box-shadow: #000 5px 5px 10px;
+    cursor: pointer;
+}
+
+
+.deleteBtn-alert #cancle-btn{
+    background-color:#7b7b7b;
+    margin: auto 10px;
+}
